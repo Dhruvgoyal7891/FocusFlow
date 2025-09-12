@@ -1,0 +1,110 @@
+:root{
+  --bg:#e9eaed;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#7ed957;
+  --glass: rgba(255,255,255,0.03);
+  --glass-2: rgba(255,255,255,0.02);
+  --primary:#60a5fa;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  background: linear-gradient(180deg,#071021 0%, #0b1320 100%);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  padding:24px;
+}
+
+.app{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  min-height:calc(100vh - 48px);
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+header h1{margin:0;font-size:22px;letter-spacing:0.6px}
+.controls button{
+  background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;color:var(--muted);
+  cursor:pointer;
+}
+
+main{
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:18px;
+  align-items:start;
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+  border:1px solid rgba(255,255,255,0.04);
+  padding:16px;border-radius:14px;backdrop-filter: blur(6px);
+  box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+}
+
+.left .card h2, .right .card h2{margin-top:0}
+#taskForm input, #taskForm textarea, #taskForm select{
+  width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
+  background:transparent;color:inherit;
+}
+#taskForm textarea{min-height:64px;resize:vertical}
+.row{display:flex;gap:10px;align-items:center}
+.row .primary{flex:1}
+button.primary{
+  background:linear-gradient(90deg,var(--primary),#4f46e5);
+  color:white;padding:10px;border-radius:10px;border:none;cursor:pointer;
+}
+button{cursor:pointer}
+
+.timer .timer-display{
+  font-size:36px;text-align:center;padding:8px 0;
+}
+
+.small{font-size:12px;color:var(--muted);margin-top:8px}
+
+.tasksCard .taskList{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;max-height:400px;overflow:auto}
+.task{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);background:var(--glass-2)}
+.task h3{margin:0;font-size:15px}
+.meta{font-size:12px;color:var(--muted)}
+.priority{font-size:12px;padding:6px;border-radius:8px}
+.priority[data-priority="low"]{background:rgba(125,211,252,0.06);color:#7dd3fc}
+.priority[data-priority="medium"]{background:rgba(250,204,21,0.06);color:#facc15}
+.priority[data-priority="high"]{background:rgba(248,113,113,0.06);color:#f87171}
+
+.actions button{background:transparent;border:none;color:var(--muted);padding:6px;margin-left:6px}
+
+.progressWrap{display:flex;flex-direction:column;gap:8px}
+.progressBar{background:rgba(255,255,255,0.03);height:12px;border-radius:8px;overflow:hidden}
+.progressFill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#22c55e)}
+
+.progressText{font-size:13px;color:var(--muted)}
+
+.quote{margin-top:12px;font-style:italic;color:var(--muted)}
+
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:auto}
+
+@media (max-width:920px){
+  main{grid-template-columns:1fr; }
+  .right{order:2}
+  .left{order:1}
+}
+.light{
+  --bg:#f6f9ff;
+  --card:#ffffff;
+  --muted:#475569;
+  --accent:#16a34a;
+  color:#0b1220;
+  background:linear-gradient(180deg,#f8fafc,#eef2ff);
+}
+.light body, .light .card{color:inherit}
